@@ -16,6 +16,15 @@ const  availablelab  = require("./routes/prescription")
 const adminappointment=require("./routes/adminappointment")
 const adminlab=require("./routes/adminlab")
 const  prescription  = require("./routes/prescription")
+const upload = require("./routes/upload")
+const details = require("./routes/details")
+const labreport = require("./routes/labreport")
+const labupload = require("./routes/labupload")
+const labdetails = require("./routes/labdetails")
+const adminauth = require("./routes/adminauth")
+const adminlogout = require("./routes/adminlogout")
+const viewprescription=require("./routes/viewprescription")
+const viewreports = require("./routes/viewreports")
 
 //middleware
 app.use(cookieParser())
@@ -27,6 +36,8 @@ app.use(cors(
         origin:["http://localhost:3000"]
     }
 ))
+
+app.use(express.static("./public/pdf"))
 
 //register
 app.use("/signup",signup)
@@ -61,8 +72,35 @@ app.use("/adminappointment",adminappointment)
 //admin lab appointment
 app.use("/adminlab",adminlab)
 
+//prescription
 app.use("/prescription",prescription)
 
+//upload prescription
+app.use("/upload",upload)
+
+//upload details
+app.use("/details",details)
+
+//labreport
+app.use("/labreport",labreport)
+
+//upload lab report
+app.use("/labupload",labupload)
+
+//lab details
+app.use("/labdetails",labdetails)
+
+//admin auth
+app.use("/adminauth",adminauth)
+
+//admin logout
+app.use("/adminlogout",adminlogout)
+
+//view prescription
+app.use("/viewprescription",viewprescription)
+
+//view reports
+app.use("/viewreports",viewreports)
 
 app.listen(3001,()=>{
     console.log("Listening on port 3001")

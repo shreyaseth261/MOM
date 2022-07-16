@@ -7,10 +7,11 @@ const appointment = (req, res) => {
   const type = req.body.type;
   const speciality = req.body.speciality;
   const doctor = req.body.doctor;
+  const status=req.body.status
 
   db.query(
-    "insert into doctors_portal.appointment(user_id,date,time,type,speciality,doctor) values(?,?,?,?,?,?)",
-    [userid, date, time, type, speciality, doctor],
+    "insert into doctors_portal.appointment(user_id,date,time,type,speciality,doctor,status) values(?,?,?,?,?,?,?)",
+    [userid, date, time, type, speciality, doctor,status],
     (err, result) => {
       if (err) {
         console.log(err);

@@ -7,6 +7,17 @@ const logout = (req,res)=>{
     }
 }
 
+const adminlogout = (req,res)=>{
+    if(res.clearCookie("adminjwt")){
+        res.send("Admin logged out")
+    }
+    else{
+        res.json({err:"Admin logout failed"})
+    }
+}
+
 module.exports={
-    logout
+    logout,
+    adminlogout
+
 }

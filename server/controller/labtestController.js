@@ -6,7 +6,7 @@ const labtest = (req, res) => {
   const date = req.body.date;
   const time = req.body.time;
   const type = req.body.type;
-  const status=req.body.status
+  const status = req.body.status
 
   db.query(
     "insert into doctors_portal.labtest(user_id,speciality,date,time,type,status) values(?,?,?,?,?,?)",

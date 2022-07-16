@@ -29,6 +29,29 @@ const auth = (req,res)=>{
         })
     }
 }
+
+const adminauth = (req,res) =>{
+    const cookie=req.cookies.adminjwt
+
+    if(!cookie){
+        res.json({err:"Admin not authenticated"})
+    }
+    else{
+        jwt.verify(cookie,"shreya",(err,result)=>{
+            if(err){
+                console.log(err)
+            }
+            if(result){
+                const id= result.id;
+                res.json({admin:"Admin Authenticated"})
+            }
+            else{
+                res.json({err:"Admin not authenticated"})
+            }
+        })
+    }
+}
 module.exports={
-    auth
+    auth,
+    adminauth
 }

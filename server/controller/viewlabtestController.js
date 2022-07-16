@@ -9,7 +9,7 @@ const view=(req,res)=>{
             res.send(result)
         }
         else{
-            res.send({err:"No Appointments"})
+            res.send({err:"No Lab test"})
         }
     })
 }
